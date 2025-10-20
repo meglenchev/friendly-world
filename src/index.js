@@ -1,17 +1,32 @@
 import express from "express";
 import handlebars from "express-handlebars";
+import mongoose from "mongoose";
 import { routes } from "./routes.js";
 
 const app = express();
+
+const url = 'mongobd://localhost:27017';
+
+try {
+    await mongoose.connect(url, {
+        dbName: 'friendly-world',
+    })
+
+    console.log('Successfully conntected to MDB');
+    
+} catch (err) {
+    console.log(`Cannot connect to DB ${err.message}`);
+}
 
 // Setup Handlebars
 app.engine('hbs', handlebars.engine({
     extname: 'hbs',
     runtimeOptions: {
-        allowProtoMethodsByDefault: true,
-        allowProtoPropertiesByDefault: true
+        allowProtoMethodsByDefault: true, // Config Handlebars to work with mongoose documents
+        allowProtoPropertiesByDefault: true //// Config Handlebars to work with mongoose documents
     }
 }));
+
 
 app.set('view engine', 'hbs');
 app.set('views', 'src/views');
