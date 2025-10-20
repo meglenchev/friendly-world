@@ -4,6 +4,7 @@ import { routes } from "./routes.js";
 
 const app = express();
 
+// Setup Handlebars
 app.engine('hbs', handlebars.engine({
     extname: 'hbs',
     runtimeOptions: {
