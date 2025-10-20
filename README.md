@@ -10,11 +10,11 @@ SoftUni JS Back End Course Exam Preparation
  - [x] Setup ExpressJS server
  - [x] Add Handlebars
  - [x] Setup Handlebars
- - [] Render Homepage
+ - [x] Render Homepage
  - [x] Setup Static Files
- - [] Add Layout
- - [] Add 404
- - [] Add Dynamic Page Title
+ - [x] Add Layout
+ - [x] Add 404
+ - [x] Add Dynamic Page Title
 
   ### Architecture
  - [] Add Home Controllers
