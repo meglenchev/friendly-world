@@ -21,5 +21,6 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Add Auth Controllers
 - [x] Add Login View
 - [x] Add Partials Directory
-- [x] Install And Setup Mongoose `npm install mongoose`
 - [x] Add Register View
+- [x] Install And Setup Mongoose `npm install mongoose`
+- [x] Add User Model
