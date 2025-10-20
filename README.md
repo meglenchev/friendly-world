@@ -6,8 +6,8 @@ SoftUni JS Back End Course Exam Preparation
  - [x] Initialize NodeJS Project
  - [x] Dev script
  - [x] Debugging
- - [] Add ExpressJS server
- - [] Setup ExpressJS server
+ - [x] Add ExpressJS server
+ - [x] Setup ExpressJS server
  - [] Add Handlebars
  - [] Setup Handlebars
  - [] Render Homepage
