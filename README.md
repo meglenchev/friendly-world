@@ -15,8 +15,6 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Add Layout
 - [x] Add 404
 - [x] Add Dynamic Page Title
-
-### Architecture
 - [x] Add Home Controllers
 - [x] Add Auth Controllers
 - [x] Add Login View
@@ -26,11 +24,24 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Add User Model
 - [x] Add Register Controler
 - [x] Add Register Service
-- [x] Install Bcrypt
+- [x] Install Bcrypt `npm install bcrypt`
 - [x] Hash Password Before Save
 - [x] Validate Password
-- [x] Install Jsonwebtoken
+- [x] Install Jsonwebtoken `npm install jsonwebtoken`
 - [x] Create Token On Login / Register
 - [x] Send Token As Cookie
 - [x] Extract JWT Secret To Constant
 - [x] Auto Login On Register
+## Login
+
+## Logout
+- [x] Logout
+
+## Authentication
+- [x] Install Cookie Parser `npm install cookie-parser`
+- [x] Add Auth Middleware
+    - [x] Allow If Guest ( no token )
+    - [x] Verify Token ( clear session if invalid )
+    - [x] Atach Decoded Token To `req.user` ( if token is valid )
+- [x] Use Auth Middleware
+- [x] Show Correct Navi For logged / non-logged Users

@@ -11,11 +11,11 @@
 
 <body>
     {{#if error}}
-        <div>
-            <div class="errorContainer">
-                <p>{{error}}</p>
-            </div>
+    <div>
+        <div class="errorContainer">
+            <p>{{error}}</p>
         </div>
+    </div>
     {{/if}}
     <div id="wrapper">
         <header>
@@ -27,17 +27,19 @@
                     <a href="/animal/search">Search</a>
                 </div>
 
-                <!-- Logged-in users -->
-                <div class="user">
-                    <a href="/animal/add">Add Animal</a>
-                    <a href="/auth/logout">Logout</a>
-                </div>
-
-                <!-- Guest users -->
-                <div class="guest">
-                    <a href="/auth/login">Login</a>
-                    <a href="/auth/register">Register</a>
-                </div>
+                {{#if isAuthenticated}}
+                    <!-- Logged-in users -->
+                    <div class="user">
+                        <a href="/animal/add">Add Animal</a>
+                        <a href="/auth/logout">Logout</a>
+                    </div>
+                {{else}}
+                    <!-- Guest users -->
+                    <div class="guest">
+                        <a href="/auth/login">Login</a>
+                        <a href="/auth/register">Register</a>
+                    </div>
+                {{/if}}
             </nav>
         </header>
 

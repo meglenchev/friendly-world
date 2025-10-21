@@ -3,6 +3,8 @@ import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 
 import { routes } from "./routes.js";
+import cookieParser from "cookie-parser";
+import { authMiddleware } from "./middlewares/authMiddleware.js";
 
 const app = express();
 
@@ -35,11 +37,17 @@ app.set('views', 'src/views');
 // Setup Static Middleware - Specify the location of static files for the project
 app.use(express.static('src/public'));
 
-// Middleware that will Parse Form Data from request
+// Add Cookie-parser
+app.use(cookieParser());
+
+// Middleware that will Parse Form Data from request "Body Parser"
 app.use(express.urlencoded({ extended: false }));
 
 // Middleware JSON Parser
 app.use(express.json());
+
+// Use Auth Middleware
+app.use(authMiddleware);
 
 // Routs
 app.use(routes); // Calling The Global Routs controller
