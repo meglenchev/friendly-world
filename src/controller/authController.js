@@ -20,7 +20,7 @@ authController.post('/login', async (req, res) => {
 
     } catch (err) {
         const errorMessage = getErrorMessage(err);
-        
+
         res.status(400).render('login', {error: errorMessage, email, pageTitle: 'Login Page'})
     }
 });
@@ -30,14 +30,23 @@ authController.get('/register', (req, res) => {
 });
 
 authController.post('/register', async (req, res) => {
-    const userData = req.body;
+    const { email, password } = req.body;
 
     try {
-        await authServices.register(userData);
+        const token = await authServices.register(email, password);
 
+        res.cookie('auth', token);
         res.redirect('/');
     } catch (err) {
         const errorMessage = getErrorMessage(err);
         res.status(400).render('register', { error: errorMessage, user: userData, pageTitle: 'Registration' });
     }
+});
+
+authController.get('/logout', (req, res) => {
+    // Clear Auth Cookie
+    res.clearCookie('auth');
+
+    // TODO: Invalidate JWT Token
+    res.redirect('/');
 });
