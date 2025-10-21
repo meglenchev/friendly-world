@@ -24,3 +24,7 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Add Register View
 - [x] Install And Setup Mongoose `npm install mongoose`
 - [x] Add User Model
+- [x] Add Register Controler
+- [x] Add Register Service
+- [x] Install Bcrypt
+- [x] Hash Password Before Save

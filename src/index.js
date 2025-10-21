@@ -1,11 +1,12 @@
 import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
+
 import { routes } from "./routes.js";
 
 const app = express();
 
-const url = 'mongobd://localhost:27017';
+const url = 'mongodb://localhost:27017';
 
 try {
     await mongoose.connect(url, {
