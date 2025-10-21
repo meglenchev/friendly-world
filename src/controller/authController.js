@@ -22,7 +22,7 @@ authController.post('/login', isGuest, async (req, res) => {
     } catch (err) {
         const errorMessage = getErrorMessage(err);
 
-        res.status(400).render('login', {
+        res.status(404).render('login', {
             error: errorMessage, 
             email, 
             pageTitle: 'Login Page',

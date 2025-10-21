@@ -8,5 +8,5 @@ routes.use(homeController);
 routes.use('/auth', authController);
 
 routes.get('/*splat', (req, res) => {
-    res.render('404', { pageTitle: '404 Page not found' });
+    res.status(404).render('404', { pageTitle: '404 Page not found' });
 });

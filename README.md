@@ -51,3 +51,6 @@ SoftUni JS Back End Course Exam Preparation
 
 ## Dynamic content
 - [x] Dynamic Navi For logged / non-logged Users
+
+## Error Handling
+- [x] Model-level data validation
