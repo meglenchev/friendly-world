@@ -31,3 +31,5 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Validate Password
 - [x] Install Jsonwebtoken
 - [x] Create Token On Login / Register
+- [x] Send Token As Cookie
+- [x] Extract JWT Secret To Constant

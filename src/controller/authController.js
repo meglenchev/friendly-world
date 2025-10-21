@@ -12,12 +12,15 @@ authController.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await authServices.login(email, password);
+        const token = await authServices.login(email, password);
+
+        res.cookie('auth', token);
 
         res.redirect('/')
 
     } catch (err) {
         const errorMessage = getErrorMessage(err);
+        
         res.status(400).render('login', {error: errorMessage, email, pageTitle: 'Login Page'})
     }
 });
