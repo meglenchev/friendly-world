@@ -1,4 +1,5 @@
 import { User } from "../models/User.js";
+import bcrypt from "bcrypt";
 
 export default {
     async register(userData) {
@@ -8,7 +9,22 @@ export default {
             throw new Error('User already exists!');
         }
 
-        const user = await User.create(userData);
+        return await User.create(userData);
+    },
+    async login(email, password) {
+        const user = await User.findOne({email});
+
+        // Validate User
+        if (!user) {
+            throw new Error('Invalid user or password!');
+        }
+
+        // Validate Password
+        const isValid = await bcrypt.compare(password, user.password);
+
+        if (!isValid) {
+            throw new Error('Invaid user or password!');
+        }
 
         return user;
     }

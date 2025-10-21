@@ -28,3 +28,4 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Add Register Service
 - [x] Install Bcrypt
 - [x] Hash Password Before Save
+- [x] Validate Password

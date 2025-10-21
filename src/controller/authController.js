@@ -8,6 +8,20 @@ authController.get('/login', (req, res) => {
     res.render('login', { pageTitle: 'Login Page' });
 });
 
+authController.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await authServices.login(email, password);
+        console.log(user);
+        res.redirect('/')
+
+    } catch (err) {
+        const errorMessage = getErrorMessage(err);
+        res.status(400).render('login', {error: errorMessage, email, pageTitle: 'Login Page'})
+    }
+});
+
 authController.get('/register', (req, res) => {
     res.render('register', { pageTitle: 'Register Page' });
 });
