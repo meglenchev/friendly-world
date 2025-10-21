@@ -3,14 +3,18 @@ import bcrypt from "bcrypt";
 import { generateAuthToken } from "../utils/tokenUtils.js";
 
 export default {
-    async register(email, password) {
+    async register(email, password, rePassword) {
         const userExists = await User.exists({ email });
 
         if (userExists) {
             throw new Error('User already exists!');
         }
 
-        const user = await User.create({email, password});
+        if (password !== rePassword) {
+            throw new Error('Passwords are not the same!');
+        }
+
+        const user = await User.create({ email, password });
 
         return generateAuthToken(user);
     },

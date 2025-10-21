@@ -22,7 +22,11 @@ authController.post('/login', isGuest, async (req, res) => {
     } catch (err) {
         const errorMessage = getErrorMessage(err);
 
-        res.status(400).render('login', {error: errorMessage, email, pageTitle: 'Login Page'})
+        res.status(400).render('login', {
+            error: errorMessage, 
+            email, 
+            pageTitle: 'Login Page',
+        })
     }
 });
 
@@ -31,16 +35,21 @@ authController.get('/register', isGuest, (req, res) => {
 });
 
 authController.post('/register', isGuest, async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, rePassword } = req.body;
 
     try {
-        const token = await authServices.register(email, password);
+        const token = await authServices.register(email, password, rePassword);
 
         res.cookie('auth', token);
+
         res.redirect('/');
     } catch (err) {
         const errorMessage = getErrorMessage(err);
-        res.status(400).render('register', { error: errorMessage, user: userData, pageTitle: 'Registration' });
+        res.status(400).render('register', { 
+            error: errorMessage, 
+            email, 
+            pageTitle: 'Register Page',
+        });
     }
 });
 

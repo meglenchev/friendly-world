@@ -44,8 +44,10 @@ SoftUni JS Back End Course Exam Preparation
     - [x] Verify Token ( clear session if invalid )
     - [x] Atach Decoded Token To `req.user` ( if token is valid )
 - [x] Use Auth Middleware
-- [x] Show Correct Navi For logged / non-logged Users
 
 ## Authorization
 - [x] Create isGuest / isAuth Middleware
     - [x] Use isGuest / isAuth In Authcontroler
+
+## Dynamic content
+- [x] Dynamic Navi For logged / non-logged Users
