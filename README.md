@@ -29,3 +29,5 @@ SoftUni JS Back End Course Exam Preparation
 - [x] Install Bcrypt
 - [x] Hash Password Before Save
 - [x] Validate Password
+- [x] Install Jsonwebtoken
+- [x] Create Token On Login / Register

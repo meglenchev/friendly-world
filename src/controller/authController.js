@@ -13,7 +13,7 @@ authController.post('/login', async (req, res) => {
 
     try {
         const user = await authServices.login(email, password);
-        console.log(user);
+
         res.redirect('/')
 
     } catch (err) {
