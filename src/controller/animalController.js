@@ -16,7 +16,7 @@ animalController.post('/add', isAuth, async (req, res) => {
     try {
         await animalServices.addAnimal(animalData, userId);
 
-        res.redirect('/');
+        res.redirect('/dashboard');
     } catch (err) {
         const errorMessage = getErrorMessage(err);
 
@@ -26,4 +26,13 @@ animalController.post('/add', isAuth, async (req, res) => {
             pageTitle: 'Create Page'
         });
     }
+});
+
+animalController.get('/dashboard', async (req, res) => {
+    const animals = await animalServices.getAll();
+
+    res.render('animal/dashboard', {
+        animals, 
+        pageTitle: 'Dashboard Page',
+    });
 });

@@ -111,6 +111,10 @@
     - [x] Add Animal service
  - [x] - Validation and Error Handling
 
+ ### 12. Dashboard
+- [x] Add Dashboard View
+- [x] Add Dynamic Data to Dashboard View
+
 ### Bonus
  - [x] Export helpers into separate module
  - [x] Add env variable for debuging
