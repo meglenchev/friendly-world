@@ -5,7 +5,7 @@ export default {
         return Animal.find();
     },
     getLatest() {
-        return Animal.find().sort({_id: -1}).limit(3);
+        return Animal.find().sort({ _id: -1 }).limit(3);
     },
     addAnimal(animalData, userId) {
         return Animal.create({
@@ -15,5 +15,8 @@ export default {
     },
     getOne(animalId) {
         return Animal.findById(animalId);
+    },
+    update(animalId, animal) {
+        return Animal.findByIdAndUpdate(animalId, animal, { runValidators: true });
     },
 }

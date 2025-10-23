@@ -2,11 +2,12 @@ import { Router } from "express";
 import { isAuth } from "../middlewares/authMiddleware.js";
 import animalServices from "../services/animalServices.js";
 import { getErrorMessage } from "../utils/errorUtils.js";
+import { isAnimalOwner } from "../middlewares/animalMiddleware.js";
 
 export const animalController = Router();
 
 animalController.get('/add', isAuth, (req, res) => {
-    res.render('animal/create', { pageTitle: 'Create Page'});
+    res.render('animal/create', { pageTitle: 'Create Page' });
 });
 
 animalController.post('/add', isAuth, async (req, res) => {
@@ -32,7 +33,7 @@ animalController.get('/dashboard', async (req, res) => {
     const animals = await animalServices.getAll();
 
     res.render('animal/dashboard', {
-        animals, 
+        animals,
         pageTitle: 'Dashboard Page',
     });
 });
@@ -47,11 +48,44 @@ animalController.get('/:animalId/details', async (req, res) => {
 
         res.render('animal/details', {
             animal,
-            isOwner, 
+            isOwner,
             pageTitle: 'Details Page'
         });
 
     } catch (err) {
         res.render('404', { error: 'Something went wrong!' })
+    }
+});
+
+animalController.get('/:animalId/edit', isAuth, isAnimalOwner, async (req, res) => {
+    const animalId = req.params.animalId;
+
+    try {
+        const animal = await animalServices.getOne(animalId);
+
+        res.render('animal/edit', {
+            animal,
+            pageTitle: 'Edit Page',
+        })
+    } catch (err) {
+        res.render('404', { error: 'Animal not found!' })
+    }
+});
+
+animalController.post('/:animalId/edit', isAuth, isAnimalOwner, async (req, res) => {
+    const animalId = req.params.animalId;
+    const animal = req.body;
+
+    try {
+        await animalServices.update(animalId, animal);
+
+        res.redirect(`/animal/${animalId}/details`);
+    } catch (err) {
+        const errorMessage = getErrorMessage(err);
+
+        res.status(400).render('animal/edit', {
+            error: errorMessage,
+            animal,
+        });
     }
 });

@@ -124,6 +124,7 @@
 - [] Adding Functionality For Button Visibility
 
  ### 16. Edit Page
+ - [x] Edit Animal
  - [x] Add Correct Information To Edit Form
  - [x] Create isAnimalOwner middleware
 
