@@ -123,6 +123,10 @@
 - [x] Add Information About The Selected Animal
 - [] Adding Functionality For Button Visibility
 
+ ### 16. Edit Page
+ - [x] Add Correct Information To Edit Form
+ - [x] Create isAnimalOwner middleware
+
 ### Bonus
  - [x] Export helpers into separate module
  - [x] Add env variable for debuging
