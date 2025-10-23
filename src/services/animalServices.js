@@ -13,4 +13,7 @@ export default {
             owner: userId,
         });
     },
+    getOne(animalId) {
+        return Animal.findById(animalId);
+    },
 }

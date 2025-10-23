@@ -119,6 +119,10 @@
 - [x] Add a method that returns the last three added
 - [x] Add Dynamic Home Data
 
+ ### 15. Details Page
+- [x] Add Information About The Selected Animal
+- [] Adding Functionality For Button Visibility
+
 ### Bonus
  - [x] Export helpers into separate module
  - [x] Add env variable for debuging

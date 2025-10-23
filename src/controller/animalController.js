@@ -36,3 +36,22 @@ animalController.get('/dashboard', async (req, res) => {
         pageTitle: 'Dashboard Page',
     });
 });
+
+animalController.get('/:animalId/details', async (req, res) => {
+    const animalId = req.params.animalId;
+
+    try {
+        const animal = await animalServices.getOne(animalId).populate('donations owner');
+
+        const isOwner = animal.owner && animal.owner._id.equals(req.user?.id);
+
+        res.render('animal/details', {
+            animal,
+            isOwner, 
+            pageTitle: 'Details Page'
+        });
+
+    } catch (err) {
+        res.render('404', { error: 'Something went wrong!' })
+    }
+});
