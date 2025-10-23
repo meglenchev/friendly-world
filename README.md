@@ -105,10 +105,11 @@
 
 ### 12. Animal
  - [x] Add Animal Model
- - [] Create Animal
+ - [x] Create Animal
     - [x] Add Create Animal View
     - [x] Add Animal controller
-    - [] Add Animal service
+    - [x] Add Animal service
+ - [x] - Validation and Error Handling
 
 ### Bonus
  - [x] Export helpers into separate module
