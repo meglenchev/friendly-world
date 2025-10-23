@@ -111,9 +111,13 @@
     - [x] Add Animal service
  - [x] - Validation and Error Handling
 
- ### 12. Dashboard
+ ### 13. Dashboard
 - [x] Add Dashboard View
 - [x] Add Dynamic Data to Dashboard View
+
+ ### 14. Home
+- [x] Add a method that returns the last three added
+- [x] Add Dynamic Home Data
 
 ### Bonus
  - [x] Export helpers into separate module
