@@ -19,4 +19,7 @@ export default {
     update(animalId, animal) {
         return Animal.findByIdAndUpdate(animalId, animal, { runValidators: true });
     },
+    delete(animalId) {
+        return Animal.findByIdAndDelete(animalId);
+    },
 }

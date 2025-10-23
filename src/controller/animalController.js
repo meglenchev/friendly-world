@@ -17,7 +17,7 @@ animalController.post('/add', isAuth, async (req, res) => {
     try {
         await animalServices.addAnimal(animalData, userId);
 
-        res.redirect('/dashboard');
+        res.redirect('/animal/dashboard');
     } catch (err) {
         const errorMessage = getErrorMessage(err);
 
@@ -88,4 +88,12 @@ animalController.post('/:animalId/edit', isAuth, isAnimalOwner, async (req, res)
             animal,
         });
     }
+});
+
+animalController.get('/:animalId/delete', isAuth, isAnimalOwner, async (req, res) => {
+    const animalId = req.params.animalId;
+
+    await animalServices.delete(animalId);
+
+    res.redirect('/animal/dashboard');
 });

@@ -127,7 +127,8 @@
  - [x] Edit Animal
  - [x] Add Correct Information To Edit Form
  - [x] Create isAnimalOwner middleware
-
+ - [x] Delete Animal
+ 
 ### Bonus
  - [x] Export helpers into separate module
  - [x] Add env variable for debuging
