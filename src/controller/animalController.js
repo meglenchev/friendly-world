@@ -42,13 +42,16 @@ animalController.get('/:animalId/details', async (req, res) => {
     const animalId = req.params.animalId;
 
     try {
-        const animal = await animalServices.getOne(animalId).populate('donations owner');
+        const animal = await animalServices.getOne(animalId);
 
         const isOwner = animal.owner && animal.owner._id.equals(req.user?.id);
+        
+        const isDonated = animal.donations.some(donor => donor.equals(req.user?.id));
 
         res.render('animal/details', {
             animal,
             isOwner,
+            isDonated,
             pageTitle: 'Details Page'
         });
 
@@ -96,4 +99,14 @@ animalController.get('/:animalId/delete', isAuth, isAnimalOwner, async (req, res
     await animalServices.delete(animalId);
 
     res.redirect('/animal/dashboard');
+});
+
+animalController.get('/:animalId/donation', isAuth, async (req, res) => {
+    const animalId = req.params.animalId;
+
+    const userId = req.user.id;
+
+    await animalServices.donation(animalId, userId);
+
+    res.redirect(`/animal/${animalId}/details`);
 });

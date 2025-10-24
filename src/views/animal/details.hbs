@@ -37,8 +37,11 @@
                         <a href="/animal/{{animal.id}}/edit" id="edit-btn">Edit</a>
                         <a href="/animal/{{animal.id}}/delete" id="delete-btn">Delete</a>
                     {{else}}
-                        <a href="/animal/{{animal.id}}/donation" id="donation-btn">Donation</a>
-                        <p id="already-donated">You already donated!</p>
+                        {{#if isDonated}}
+                            <p id="already-donated">You already donated!</p>
+                        {{else}}
+                            <a href="/animal/{{animal.id}}/donation" id="donation-btn">Donation</a>
+                        {{/if}}
                     {{/if}}
                 </div>
             {{/if}}

@@ -128,7 +128,10 @@
  - [x] Add Correct Information To Edit Form
  - [x] Create isAnimalOwner middleware
  - [x] Delete Animal
- 
+
+  ### 16. Donation Functionality
+ - [x] Add Donation Functionality
+
 ### Bonus
  - [x] Export helpers into separate module
  - [x] Add env variable for debuging

@@ -22,4 +22,7 @@ export default {
     delete(animalId) {
         return Animal.findByIdAndDelete(animalId);
     },
+    donation(animalId, userId) {
+        return Animal.findByIdAndUpdate(animalId, { $push: { donations: userId } });
+    }
 }
