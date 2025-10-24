@@ -111,6 +111,14 @@ animalController.get('/:animalId/donation', isAuth, async (req, res) => {
     res.redirect(`/animal/${animalId}/details`);
 });
 
-animalController.get('/search', (req, res) => {
-    res.render('animal/search', { pageTitle: 'Search Page'});
+animalController.get('/search', async (req, res) => {
+    const filter = req.query;
+    
+    const animals = await animalServices.getAll(filter);
+
+    res.render('animal/search', { 
+        filter, 
+        animals, 
+        pageTitle: 'Search Page'}
+    );
 });

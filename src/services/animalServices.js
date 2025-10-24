@@ -1,8 +1,14 @@
 import { Animal } from "../models/Animal.js"
 
 export default {
-    getAll() {
-        return Animal.find();
+    getAll(filter = {}) {
+        let query = Animal.find();
+
+        if (filter.location) {
+            query = query.find({ location: { $regex: filter.location, $options: 'i' } });
+        }
+
+        return query;
     },
     getLatest() {
         return Animal.find().sort({ _id: -1 }).limit(3);
