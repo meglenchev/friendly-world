@@ -129,8 +129,12 @@
  - [x] Create isAnimalOwner middleware
  - [x] Delete Animal
 
-  ### 16. Donation Functionality
+  ### 17. Donation Functionality
  - [x] Add Donation Functionality
+
+   ### 18. Search
+ - [x] Add Search View
+ - [x] Create Search Functionality
 
 ### Bonus
  - [x] Export helpers into separate module
